@@ -1,0 +1,277 @@
+@import "normalize.css";
+
+* {
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+    background-color: #38404b;
+    height: 100%;
+}
+
+main {
+    height: 100%;
+}
+
+.top {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 65px;
+
+    &__title {
+        display: none;
+        color: #94adcf;
+    }
+
+    &__task-form {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: auto;
+        width: 40%;
+        border-radius: 10px;
+        background: #38404b;
+        box-shadow: inset 2px 2px 5px rgba($color: #000000, $alpha: 0.2),
+                    inset -1px -1px 7px rgba($color: #ffffff, $alpha: 0.1);
+
+        &--mobile {
+            display: none;
+        }
+    
+        &__task-input {
+            width: 100%;
+            padding: 12px 15px;
+            height: 100%;
+            border: none;
+            outline: none;
+            background: none;
+            color: #94adcf;
+        
+            &::placeholder {
+                color: rgba($color: #94adcf, $alpha: 0.5);
+            }
+
+            &--mobile {
+                border-radius: 10px;
+                background: #38404b;
+                box-shadow: inset 2px 2px 5px rgba($color: #000000, $alpha: 0.2),
+                            inset -1px -1px 7px rgba($color: #ffffff, $alpha: 0.1);
+                margin-bottom: 15px;
+                height: 8%;
+                width: 85%;    
+            }
+        }
+
+        &__task-add {
+            color: #94adcf;
+            margin-right: 15px;
+            cursor: pointer;
+            background: none;
+            border: none;
+        }
+
+        &__task-btns {
+            display: flex;
+
+
+            &__task-add, &__task-close {
+                color: #94adcf;
+                margin-right: 15px;
+                cursor: pointer;
+                background: none;
+                border: none;
+    
+                &--mobile {
+                    border-radius: 15px;
+                    background: #38404b;
+                    box-shadow: inset -2px -2px 5px rgba($color: #000000, $alpha: 0.4),
+                                inset 1px 1px 7px rgba($color: #ffffff, $alpha: 0.2);
+                    padding: 10px 20px;
+                }
+            }
+
+            &__task-close {
+                &--mobile {
+                    box-shadow: 2px 2px 5px rgba($color: #000000, $alpha: 0.4),
+                                -1px -1px 7px rgba($color: #ffffff, $alpha: 0.2);
+                }
+            }
+        }
+    }
+
+    &__task-input-btn {
+        display: none;
+    }
+    
+    &__menu {
+        position: absolute;
+        right: 0;
+        transform: scaleX(-1);
+        margin-right: 70px;
+        cursor: pointer;
+    
+        &__bar {
+            display: block;
+            width: 27px;
+            height: 5px;
+            background-color: #94adcf;
+            border-radius: 5px;
+    
+            &:not(:last-child) {
+                margin-bottom: 5px;
+            }
+    
+            &:nth-child(2) {
+                width: 35px;
+            }
+    
+            &:nth-child(3) {
+                width: 20px;
+            }
+        }
+    }
+}
+
+.tasks-container {
+    width: 85%;
+    margin: auto;
+    
+    &__title {
+        color: #94adcf;
+        font-weight: normal;
+        margin-top: 60px;
+    }
+
+    &__tasks {
+        margin: auto;
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: 50px 0;
+        margin-top: 100px;
+
+        &--completed {
+            margin-top: 40px;
+            text-decoration: line-through;
+            text-decoration-color: #94adcf;
+            font-weight: bold;
+        }
+    
+        &__task {
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            width: 40%;
+            padding: 15px 10px;
+            border-radius: 15px;
+            background: #38404b;
+            box-shadow: 2px 2px 5px rgba($color: #000000, $alpha: 0.4),
+                        -1px -1px 7px rgba($color: #ffffff, $alpha: 0.2);
+            color: #94adcf;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+
+            &--completed {
+                box-shadow: inset 2px 2px 5px rgba($color: #000000, $alpha: 0.2),
+                            inset -1px -1px 7px rgba($color: #ffffff, $alpha: 0.1);
+            }
+
+            &__name {
+                cursor: pointer;
+            }
+
+            input {
+                position: absolute;
+                opacity: 0;
+                cursor: pointer;
+            }
+
+            input:checked ~ &__check {
+                background-color: #94adcf;
+            }
+    
+            &__check {
+                margin: 5px 15px;
+                border: 4px solid #94adcf;
+                border-radius: 50%;
+                width: 20px;
+                height: 20px;
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .top {
+        width: 85%;
+        margin: auto;
+        justify-content: space-between;
+        margin-top: 25px;
+
+        &__title {
+            display: block;
+        }
+
+        &__menu {
+            position: relative;
+            margin: 0;
+        }
+
+        &__task-form {
+            display: none;
+            box-shadow: none;
+            background: none;
+            width: auto;
+
+            &--mobile {
+                transition: 0.5s all;
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                background-color: rgba($color: #000000, $alpha: 0.7);
+                width: 100%;
+                height: 100%;
+            }
+        }
+
+        &__task-input-btn {
+            display: block;
+            border-radius: 50%;
+            border: none;
+            width: 50px;
+            height: 50px;
+            font-size: 40px;
+            color: #94adcf;
+            background: #38404b;
+            box-shadow: inset -2px -2px 5px rgba($color: #000000, $alpha: 0.4),
+                        inset 1px 1px 7px rgba($color: #ffffff, $alpha: 0.2);
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+        }
+    }
+
+    .tasks-container {
+        &__tasks {
+            margin-top: 25px;
+
+            &__task {
+                width: 100%;
+                padding: 10px;
+
+                &__check {
+                    border-width: 3px;
+                    width: 15px;
+                    height: 15px;
+                }
+            }
+        }
+    }
+}

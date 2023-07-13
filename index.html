@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ToDo List</title>
+    <link rel="stylesheet" href="styles/style.css">
+    <script src="https://kit.fontawesome.com/e1627e5c17.js" crossorigin="anonymous"></script>
+    <script src="scripts/taskInput.js" defer></script>
+    <script src="scripts/taskComplete.js" defer></script>
+    <script src="scripts/mobileInput.js" defer></script>
+</head>
+<body>
+    <main>
+        <div class="top">
+            <h1 class="top__title">My Tasks</h1>
+            <div class="top__menu">
+                <span class="top__menu__bar"></span>
+                <span class="top__menu__bar"></span>
+                <span class="top__menu__bar"></span>
+            </div>
+            <form class="top__task-form">
+                <input type="text" placeholder="Add new task" class="top__task-form__task-input" />
+                <button class="top__task-form__task-add fa-solid fa-chevron-right" type="submit"></button>
+            </form>
+
+            <button type="button" class="top__task-input-btn">+</button>
+            <form class="top__task-form top__task-form--mobile">
+                <input type="text" placeholder="Add new task" class="top__task-form__task-input top__task-form__task-input--mobile" />
+                <div class="top__task-form__task-btns">
+                    <button class="top__task-form__task-btns__task-add top__task-form__task-btns__task-add--mobile" type="submit">Add Task</button>
+                    <button class="top__task-form__task-btns__task-close top__task-form__task-btns__task-close--mobile" type="button">Close</button>
+                </div>
+            </form>
+        </div>
+        <div class="tasks-container">
+            <div class="tasks-container__tasks tasks-container__tasks--pending">
+                <div class="tasks-container__tasks__task">
+                    <input type="radio" id="shopping" />
+                    <span class="tasks-container__tasks__task__check"></span>
+                    <label for="shopping" class="tasks-container__tasks__task__name">Go shopping</label>
+                </div>
+    
+                <div class="tasks-container__tasks__task">
+                    <input type="radio" id="exercise" />
+                    <span class="tasks-container__tasks__task__check"></span>
+                    <label for="exercise" class="tasks-container__tasks__task__name">Short exercise</label>
+                </div>
+    
+                <div class="tasks-container__tasks__task">
+                    <input type="radio" id="meditation" />
+                    <span class="tasks-container__tasks__task__check"></span>
+                    <label for="meditation" class="tasks-container__tasks__task__name">Meditation</label>
+                </div>
+            </div>
+        </div>
+        <div class="tasks-container tasks-container--completed">
+            <h2 class="tasks-container__title tasks-container__title--completed">Completed</h2>
+
+            <div class="tasks-container__tasks tasks-container__tasks--completed">
+                <div class="tasks-container__tasks__task tasks-container__tasks__task--completed">
+                    <input type="radio" id="reading" checked=true />
+                    <span class="tasks-container__tasks__task__check"></span>
+                    <label for="shopping" class="tasks-container__tasks__task__name">Reading</label>
+                </div>
+            </div>
+        </div>
+    </main>
+</body>
+</html>
