@@ -11,33 +11,16 @@ closeBtn.addEventListener("click", (e) => {
 })
 
 const formMobile = document.querySelector(".top__task-form--mobile");
-const inputBtnMobile = document.querySelector(".top__task-form__task-add--mobile");
 const inputMobile = document.querySelector(".top__task-form__task-input--mobile");
 
 formMobile.addEventListener("submit", (e) => {
     e.preventDefault();
-    const taskName = inputMobile.value;
+
+    const inputMobile = document.querySelector(".top__task-form__task-input--mobile");
+    const taskName = inputMobile.value.trim();
     if (taskName !== '') {
-        tasks.push(taskName);
+        addTodo(taskName);
         inputMobile.value = '';
     }
-    displayTasks(tasks);
+    taskFormMobile.style.display = "none";
 })
-
-function displayTasks(tasks) {
-    const tasksContainer = document.querySelector(".tasks-container__tasks");
-    let index = 0;
-    let newTasks = '';
-    for (const task of tasks) {
-        taskElem = `
-            <div class="tasks-container__tasks__task">
-                <input type="radio" id="task${index}" />
-                <span class="tasks-container__tasks__task__check"></span>
-                <label for="task${index}" class="tasks-container__tasks__task__name">${task}</label>
-            </div>
-        `
-        index += 1;
-        newTasks += taskElem;
-    }
-    tasksContainer.innerHTML = newTasks;
-}
