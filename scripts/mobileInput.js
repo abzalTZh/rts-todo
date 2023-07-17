@@ -20,7 +20,6 @@ formMobile.addEventListener("submit", (e) => {
     if (taskName !== '') {
         tasks.push(taskName);
         inputMobile.value = '';
-        console.log(tasks);
     }
     displayTasks(tasks);
 })

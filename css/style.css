@@ -1,4 +1,4 @@
-@import "normalize.css";
+@import "../css/normalize.css";
 * {
   box-sizing: border-box;
   font-family: Arial, Helvetica, sans-serif;
@@ -44,6 +44,9 @@ main {
   outline: none;
   background: none;
   color: #94adcf;
+}
+.top__task-form__task-input::-moz-placeholder {
+  color: rgba(148, 173, 207, 0.5);
 }
 .top__task-form__task-input::placeholder {
   color: rgba(148, 173, 207, 0.5);
@@ -109,6 +112,15 @@ main {
   width: 20px;
 }
 
+.empty-state {
+  display: none;
+  color: #94adcf;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 100px;
+}
+
 .tasks-container {
   width: 85%;
   margin: auto;
@@ -125,6 +137,7 @@ main {
   flex-wrap: wrap;
   gap: 50px 0;
   margin-top: 100px;
+  padding: 0;
 }
 .tasks-container__tasks--completed {
   margin-top: 40px;
@@ -144,8 +157,15 @@ main {
   color: #94adcf;
   -webkit-user-select: none;
   -moz-user-select: none;
-  -ms-user-select: none;
   user-select: none;
+}
+.tasks-container__tasks__task--empty {
+  background: none;
+  box-shadow: none;
+  cursor: initial;
+  margin: auto;
+  justify-content: center;
+  font-size: 1.2rem;
 }
 .tasks-container__tasks__task--completed {
   box-shadow: inset 2px 2px 5px rgba(0, 0, 0, 0.2), inset -1px -1px 7px rgba(255, 255, 255, 0.1);
@@ -227,6 +247,4 @@ input:checked ~ .tasks-container__tasks__task__check {
     width: 15px;
     height: 15px;
   }
-}
-
-/*# sourceMappingURL=style.css.map */
+}/*# sourceMappingURL=style.css.map */
