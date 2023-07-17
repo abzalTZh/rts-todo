@@ -1,6 +1,6 @@
 const tasks = [];
 
-(function () {
+function checkEmpty() {
     const completedSection = document.querySelector(".tasks-container__tasks--completed");
     const completedSectionTitle = document.querySelector(".tasks-container__title--completed");
     const pendingSection = document.querySelector(".tasks-container__tasks--pending");
@@ -12,12 +12,14 @@ const tasks = [];
         completedSectionTitle.style.display = "block";
     }
 
-    if(pendingSection.innerHTML.trim() === '') {
+    if(pendingSection.innerHTML.trim() === '' && completedSection.innerHTML.trim() === '') {
         emptyState.style.display = "flex";
     } else {
         emptyState.style.display = "none";
     }
-})();
+}
+
+window.addEventListener("load", checkEmpty);
 
 function displayTask(todo) {
     const taskStatus = todo.checked ? 'completed' : 'pending';
@@ -38,6 +40,7 @@ function displayTask(todo) {
     } else {
         tasksContainer.appendChild(node);
     }
+    checkEmpty();
 }
 
 function markComplete(key) {
