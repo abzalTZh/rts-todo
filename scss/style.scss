@@ -146,6 +146,10 @@ main {
 .tasks-container {
     width: 85%;
     margin: auto;
+
+    &--completed {
+        display: none;
+    }
     
     &__title {
         color: #94adcf;

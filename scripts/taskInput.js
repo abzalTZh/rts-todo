@@ -1,18 +1,18 @@
 const tasks = [];
 
 function checkEmpty() {
-    const completedSection = document.querySelector(".tasks-container__tasks--completed");
-    const completedSectionTitle = document.querySelector(".tasks-container__title--completed");
+    const completedSection = document.querySelector(".tasks-container--completed");
+    const completedSectionContents = document.querySelector(".tasks-container__tasks--completed");
     const pendingSection = document.querySelector(".tasks-container__tasks--pending");
     const emptyState = document.querySelector(".empty-state");
 
-    if(completedSection.innerHTML.trim() === '') {
-        completedSectionTitle.style.display = "none";
+    if(completedSectionContents.innerHTML.trim() === '') {
+        completedSection.style.display = "none";
     } else {
-        completedSectionTitle.style.display = "block";
+        completedSection.style.display = "block";
     }
 
-    if(pendingSection.innerHTML.trim() === '' && completedSection.innerHTML.trim() === '') {
+    if(pendingSection.innerHTML.trim() === '' && completedSectionContents.innerHTML.trim() === '') {
         emptyState.style.display = "flex";
     } else {
         emptyState.style.display = "none";
