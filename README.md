@@ -9,10 +9,8 @@ The application also has a mobile version.
 
 ## TODO:
 
-<input type="checkbox" id="task-state-switch" checked />
-<label for="task-state-switch">Fix task state switching for manually added tasks</label>
-<input type="checkbox" id="js-cleanup" checked />
-<label for="js-cleanup">Repolish JavaScript scripts</label>
+- [x] Fix task state switching for manually added tasks
+- [x] Repolish JavaScript scripts
 
 ## Project Stack
 
